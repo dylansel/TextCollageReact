@@ -36,31 +36,21 @@ export default function TextCollage(props) {
     let msg = props.msg || "MENSAJE",
     src = props.src,
     font = props.fontFamily || 'sans-serif',
-    size = props.size || "10rem",
+    size = props.size || 250,
     textStyle = props.textStyle,
     frequency = props.frequency || 30,
-    width = size* msg.length,
-    height = size* msg.length,
     imagen = CreateCollageCanva(src,frequency*msg.length,frequency*msg.length);
     //styles
 
-    const styleContendor = {
-        background: "blue",
-        align: "center",
-        justifyContent: "center",
-        margin: "50px"
-    }
-
-    const styleText = {
+    console.log(size)
+    let styleText = {
         textAlign: "center",
         justifyContent: "center",
-        width:width,
-        height:height,
         fontFamily:font,
-        fontSize: size,
+        fontSize: size ,
         fontWeight: "bold",
         backgroundImage:`url(${imagen.toDataURL()})` ,
-        backgroundClip:"text",
+        backgroundClip:"inherit",
         WebkitBackgroundClip: "text",
         color:"transparent",
         boxSizing: "border-box",
@@ -69,8 +59,10 @@ export default function TextCollage(props) {
     }
     return (
         <>
-            <div style={styleText}>{msg}</div>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <a id="divTextCollage"style={styleText}>{msg}</a>
+            
+
+            
         </>
     )
 }
