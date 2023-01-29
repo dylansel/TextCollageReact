@@ -77,6 +77,12 @@ export default class CargarTerxto extends Component {
                 <label htmlFor="">Frequencia:</label>
                 <input type="number" onChange={this.handlerChangeFrequency} placeholder="20"/>
                 <br />
+            </>:""}
+
+            {(this.state.title != null)?<>
+                <label htmlFor="">Color Fondo:</label>
+                <input type="color" onChange={e=>{this.styleTextContain={backgroundColor: e.target.value}}} />
+                <br />
                 <button onClick={this.handleTextGenere}>GENERAR</button>
                 {(this.state.textGenere)?<DownloadButton idDiv="textCollageF"/>:""} 
             </>:""}
@@ -85,13 +91,10 @@ export default class CargarTerxto extends Component {
         
         
         <div id="textCollageF" style={this.styleTextContain}>
-        <TextCollage msg="prueba" src={[]} />
-            <h2>TEXTO AQUI</h2>
-            
+
         {this.state.textGenere?
         <TextCollage msg={this.state.title} src={this.state.imgs} frequency={this.state.frequency} size={250}/>:"NO"}
         </div>
-        
         
         </>
         )
